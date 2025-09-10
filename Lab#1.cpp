@@ -11,6 +11,8 @@
 
 
 // ADD HEADER FILES HERE
+#include <iostream>
+using namespace std;
 
 // -----------------------------
 // Data Model
@@ -26,6 +28,16 @@ struct User {
         next = nullptr;
     }
 };
+
+//Fucntion implementations
+bool insertUser(User*& head, const string& username, const string& password);
+User* findUser(User* head, const string& username);
+bool authenticate(User* head, const string& username, const string& password);
+bool removeFront(User*& head);
+bool removeByUsername(User*& head, const string& username);
+void clearList(User*& head);
+size_t size(User* head);
+void printUsers(User* head);
 
 
 int main() {
