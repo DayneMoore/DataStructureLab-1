@@ -60,6 +60,9 @@ int main() {
     insertUser(head, username, password);
 
     printUsers(head);
+
+    username = "Nanz";
+    findUser(head, username);
     
     return 0;
 }
@@ -91,6 +94,14 @@ bool insertUser(User*& head, const string& username, const string& password) {
 // Returns pointer to the node with matching username; otherwise nullptr.
 User* findUser(User* head, const string& username) {
     // TODO: implement
+    User* current = head;
+    while(current != nullptr) {
+        if(current->username == username) {
+            cout << "User found.";
+            return current;
+        }
+        current = current->next;
+    }
     
     return nullptr;
 }
@@ -98,6 +109,7 @@ User* findUser(User* head, const string& username) {
 // Returns true if (username, password) matches an existing node; false otherwise.
 bool authenticate(User* head, const string& username, const string& password) {
     // TODO: implement
+
    
     return false;
 }
