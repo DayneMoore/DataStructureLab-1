@@ -43,6 +43,16 @@ void printUsers(User* head);
 int main() {
   
     // Write code here to test your implementation
+    //create a linked list to start with
+    User user1("Dayne", "Ballerz");
+    User user2("Wayne", "Ballerz");
+    User user3("Clint", "ffghhiie");
+
+    User* head = &user1;
+    user1.next = &user2;
+    user2.next = &user3;
+
+    printUsers(head);
     
     return 0;
 }
@@ -107,5 +117,10 @@ size_t size(User* head) {
 // Example: alice -> bob -> charlie -> NULL
 void printUsers(User* head) {
     // TODO: implement
+    User* current = head;
+    while(current != nullptr) {
+        cout << current->username << " -> ";
+        current = current->next;
+    } cout << "Null" << endl;
     
 }
