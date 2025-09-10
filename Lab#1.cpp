@@ -53,6 +53,13 @@ int main() {
     user2.next = &user3;
 
     printUsers(head);
+
+    string username, password;
+    username = "Dayne";
+    password = "Stroyer";
+    insertUser(head, username, password);
+
+    printUsers(head);
     
     return 0;
 }
@@ -66,8 +73,19 @@ int main() {
 // Otherwise insert and return true.
 bool insertUser(User*& head, const string& username, const string& password) {
     // TODO: implement
-   
-    return false;
+    User* current = head;
+   while(current->next != nullptr) {
+    if(current->username == username) {
+        return false;
+    }
+        current = current->next;
+   }
+   if(current->username == username) {
+        return false;
+    }
+    current->next = new User(username, password);
+
+    return true;
 }
 
 // Returns pointer to the node with matching username; otherwise nullptr.
