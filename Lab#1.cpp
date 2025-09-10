@@ -63,6 +63,10 @@ int main() {
 
     username = "Nanz";
     findUser(head, username);
+
+    username = "Clint";
+    password = "ffghhiie";
+    authenticate(head, username, password);
     
     return 0;
 }
@@ -109,7 +113,17 @@ User* findUser(User* head, const string& username) {
 // Returns true if (username, password) matches an existing node; false otherwise.
 bool authenticate(User* head, const string& username, const string& password) {
     // TODO: implement
-
+     User* current = head;
+    while(current != nullptr) {
+        if(current->username == username) {
+            if(current->password == password) {
+                cout << "Username and password matches.";
+                return true;
+            }
+            
+        }
+        current = current->next;
+    }
    
     return false;
 }
