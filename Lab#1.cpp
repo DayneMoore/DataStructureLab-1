@@ -75,6 +75,10 @@ int main() {
 
     printUsers(head);
 
+    clearList(head);
+
+    printUsers(head);
+
     
     return 0;
 }
@@ -173,6 +177,13 @@ bool removeByUsername(User*& head, const string& username) {
 // Deletes ALL nodes and sets head=nullptr. 
 void clearList(User*& head) {
     // TODO: implement
+    User* current = head;
+    while(current != nullptr) {
+        current = current->next;
+        delete current;
+    }
+
+    head = nullptr;
     
 }
 
@@ -187,6 +198,11 @@ size_t size(User* head) {
 // Example: alice -> bob -> charlie -> NULL
 void printUsers(User* head) {
     // TODO: implement
+    if(head == nullptr) {
+        cout << "List empty...\n";
+        return;
+    }
+
     User* current = head;
     while(current != nullptr) {
         cout << current->username << " -> ";
