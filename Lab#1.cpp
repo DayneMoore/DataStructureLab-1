@@ -44,13 +44,10 @@ int main() {
   
     // Write code here to test your implementation
     //create a linked list to start with
-    User user1("Dayne", "Ballerz");
-    User user2("Wayne", "Ballerz");
-    User user3("Clint", "ffghhiie");
+    User* head = new User("Dayne", "Ballerz");
+    head->next = new User("Wayne", "Ballerz");
+    head->next->next = new User("Clint", "ffghhiie");
 
-    User* head = &user1;
-    user1.next = &user2;
-    user2.next = &user3;
 
     printUsers(head);
 
@@ -67,6 +64,11 @@ int main() {
     username = "Clint";
     password = "ffghhiie";
     authenticate(head, username, password);
+
+    removeFront(head);
+
+    printUsers(head);
+
     
     return 0;
 }
@@ -132,8 +134,17 @@ bool authenticate(User* head, const string& username, const string& password) {
 // Return true if a node was deleted, false otherwise.
 bool removeFront(User*& head) {
     // TODO: implement
+    if(head == nullptr) {
+        cout << "List is empty...";
+        return false;
+    } else {
+    //use the swap method to delete the old head
+    User* temp = head;
+    head = head->next;
+    delete temp;
+    }
     
-    return false;
+    return true;
 }
 
 // Deletes the node with matching username (first match only).
