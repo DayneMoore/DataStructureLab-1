@@ -69,6 +69,12 @@ int main() {
 
     printUsers(head);
 
+
+    username = "Brian";
+    removeByUsername(head, username);
+
+    printUsers(head);
+
     
     return 0;
 }
@@ -103,7 +109,7 @@ User* findUser(User* head, const string& username) {
     User* current = head;
     while(current != nullptr) {
         if(current->username == username) {
-            cout << "User found.";
+            cout << "User found.\n";
             return current;
         }
         current = current->next;
@@ -119,7 +125,7 @@ bool authenticate(User* head, const string& username, const string& password) {
     while(current != nullptr) {
         if(current->username == username) {
             if(current->password == password) {
-                cout << "Username and password matches.";
+                cout << "Username and password matches.\n";
                 return true;
             }
             
@@ -151,7 +157,16 @@ bool removeFront(User*& head) {
 // Return true if a node was found & deleted; false if not found.
 bool removeByUsername(User*& head, const string& username) {
     // TODO: implement
-    
+    User* current = head;
+    while(current != nullptr) {
+        if(current->username == username) {
+            delete current;
+            cout << "Node deleted" << endl;
+            return true;
+        }
+        current = current->next;
+    }
+    cout << "Name not found...\n";
     return false;
 }
 
