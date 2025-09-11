@@ -79,6 +79,8 @@ int main() {
 
     printUsers(head);
 
+    cout << "Linked list size: " << size(head) << endl;
+
     
     return 0;
 }
@@ -190,8 +192,14 @@ void clearList(User*& head) {
 // Returns number of nodes.
 size_t size(User* head) {
     // TODO: implement
+    size_t count = 0;
+    User* current = head;
+    while(current != nullptr) {
+        count++;
+        current = current->next;
+        }
     
-    return 0;
+    return count;
 }
 
 // Prints usernames in order, separated by " -> " then " -> NULL".
